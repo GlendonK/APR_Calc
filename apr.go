@@ -10,12 +10,15 @@ to your own price
 */
 
 func main() {
+	var deposit = 2.30
+	var apr = 257.01
+
 	var compoundDaysList [365]float64
 	for i := 1; i <= 365; i++ {
-		compoundDaysList[i-1] = compounder(527.98, 147.70, 2, float64(i))
+		compoundDaysList[i-1] = compounder(deposit, apr, 0.02, float64(i))
 	}
 	var days, max = findMax(compoundDaysList)
-	var apy = ((max- 527.98)/527.98) *100
+	var apy = ((max - deposit) / deposit) * 100
 	fmt.Printf("Optimal days: %d of %f%% apy at $%f \n", days, apy, max)
 }
 
