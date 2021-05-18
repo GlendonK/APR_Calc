@@ -5,8 +5,8 @@ import (
 )
 
 /**
-change compounder(_depositPrice float64, _apr float64, _gasTotal float64, _days float64)
-to your own price
+change var deposit = <the price of deposit>
+	var apr = <apr in %>
 */
 
 func main() {
