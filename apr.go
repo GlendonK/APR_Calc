@@ -7,16 +7,17 @@ import (
 /**
 change var deposit = <the price of deposit>
 	var apr = <apr in %>
+	var gasPerCompound = <gas cost to claim + swaps + deposit>
 */
 
 func main() {
 	var deposit = 2148.04
-	var apr = 154.29
-	var gasPerCompound = 6.0
+	var apr = 154.19
+	var gasPerCompound = 7
 
 	var compoundDaysList [365]float64
 	for i := 1; i <= 365; i++ {
-		compoundDaysList[i-1] = compounder(deposit, apr, gasPerCompound, float64(i))
+		compoundDaysList[i-1] = compounder(deposit, apr, float64(gasPerCompound), float64(i))
 	}
 	var days, max = findMax(compoundDaysList)
 	var apy = ((max - deposit) / deposit) * 100
