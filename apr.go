@@ -4,13 +4,19 @@ import (
 	"fmt"
 )
 
+/**
+change compounder(_depositPrice float64, _apr float64, _gasTotal float64, _days float64)
+to your own price
+*/
+
 func main() {
 	var compoundDaysList [365]float64
 	for i := 1; i <= 365; i++ {
 		compoundDaysList[i-1] = compounder(527.98, 147.70, 2, float64(i))
 	}
 	var days, max = findMax(compoundDaysList)
-	fmt.Printf("Optimal days: %d at %f \n", days, max)
+	var apy = ((max- 527.98)/527.98) *100
+	fmt.Printf("Optimal days: %d of %f%% apy at $%f \n", days, apy, max)
 }
 
 func findMax(list [365]float64) (int, float64) {
