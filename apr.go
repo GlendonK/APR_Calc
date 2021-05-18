@@ -10,12 +10,13 @@ change var deposit = <the price of deposit>
 */
 
 func main() {
-	var deposit = 2.30
-	var apr = 257.01
+	var deposit = 2148.04
+	var apr = 154.29
+	var gasPerCompound = 6.0
 
 	var compoundDaysList [365]float64
 	for i := 1; i <= 365; i++ {
-		compoundDaysList[i-1] = compounder(deposit, apr, 0.02, float64(i))
+		compoundDaysList[i-1] = compounder(deposit, apr, gasPerCompound, float64(i))
 	}
 	var days, max = findMax(compoundDaysList)
 	var apy = ((max - deposit) / deposit) * 100
@@ -53,7 +54,7 @@ func compounder(_depositPrice float64, _apr float64, _gasTotal float64, _days fl
 		}
 	}
 
-	fmt.Printf("Compounded %f days: %f\n", _days, _depositPrice)
+	fmt.Printf("Compounded every %d days: %f\n", int(_days), _depositPrice)
 	return _depositPrice
 
 }
