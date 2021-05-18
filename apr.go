@@ -13,7 +13,7 @@ change var deposit = <the price of deposit>
 func main() {
 	var deposit = 2148.04
 	var apr = 154.19
-	var gasPerCompound = 7
+	var gasPerCompound = 6
 
 	var compoundDaysList [365]float64
 	for i := 1; i <= 365; i++ {
@@ -28,7 +28,7 @@ func findMax(list [365]float64) (int, float64) {
 	var max float64 = list[0]
 	var days int = 0
 	for i := 0; i < 365; i++ {
-		if list[i] > max {
+		if list[i] >= max {
 			max = list[i]
 			days = i + 1
 		}
