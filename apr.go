@@ -11,9 +11,9 @@ change var deposit = <the price of deposit>
 */
 
 func main() {
-	var deposit = 2148.04
-	var apr = 154.19
-	var gasPerCompound = 6
+	var deposit float64 = 1809.12
+	var apr float64 = 152.33
+	var gasPerCompound float64 = 6
 
 	var compoundDaysList [365]float64
 	for i := 1; i <= 365; i++ {
